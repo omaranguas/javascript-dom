@@ -1,0 +1,529 @@
+/* ===== VARIABLES CSS ===== */
+:root {
+  --font-size: 16px;
+  --font-family: sans-serif;
+  --first-color: #f7df1e;
+  --dark-color: #222222;
+  --first-modal-color: rgba(247, 222, 30, 0.85);
+  --dark-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
+}
+
+/* ===== RESET ===== */
+html {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  width: 150px;
+  padding: 0.5rem;
+  background-color: var(--first-modal-color);
+}
+
+button:hover {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: #1b5e20;
+}
+
+.btn-disabled {
+  cursor: default;
+}
+
+.btn-disabled:hover {
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (min-width: 700px) {
+  .buttons {
+    display: block;
+  }
+}
+
+/* ===== HAMBURGER MENU ===== */
+.header {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background-color: var(--first-color);
+  color: var(--dark-color);
+  z-index: 997;
+}
+
+.header-title {
+  margin: 0;
+  text-align: center;
+}
+
+.section {
+  padding: 2rem;
+  padding-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.panel {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-y: auto;
+  background-color: var(--dark-modal-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  transform: translate(0, 50%);
+}
+
+.panel::-webkit-scrollbar {
+  display: none;
+  overflow: hidden;
+}
+
+.panel.is-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.panel-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--first-color);
+  outline: none;
+}
+
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu a {
+  padding: 2rem;
+  width: inherit;
+  display: block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--first-color);
+  transition: all 0.3 ease;
+}
+
+.menu a:hover {
+  color: var(--dark-color);
+  background-color: var(--first-modal-color);
+}
+
+/* ===== KEYBOARD EVENTS  ===== */
+.stage {
+  display: flex;
+  min-height: 50vh;
+  background-color: var(--dark-color);
+}
+
+.stage-dark {
+  background-color: #fff;
+}
+
+.ball {
+  margin: auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--first-color);
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  font-size: 1.5rem;
+}
+
+.message {
+  font-size: 4rem;
+  color: var(--first-color);
+}
+
+/* ===== SCROLL ===== */
+.scroll {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  right: calc(4.25rem + 1vw);
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  color: var(--dark-color);
+  transition: all 0.3s ease-out;
+}
+
+.scroll:hover {
+  background-color: var(--dark-color);
+  color: var(--first-color);
+  font-size: 2rem;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ===== THEME DARK ===== */
+.dark-theme-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 1vh;
+  left: 1vw;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: none;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-out;
+}
+
+.dark-theme-btn:hover {
+  background-color: var(--dark-color);
+  font-size: 2.5rem;
+}
+
+.dark-mode {
+  background-color: var(--dark-color);
+  color: var(--first-color);
+}
+
+/* NETWORK */
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #1b5e20;
+  color: #fff;
+}
+
+.offline {
+  background-color: #b71c1c;
+}
+
+/* SEARCH FILTERS */
+.card-filter {
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+  border: 0.156rem solid gray;
+  width: 80%;
+  padding: 0.5rem;
+  color: var(--dark-modal-color);
+}
+
+.card-filter:focus {
+  border: 0.156rem solid var(--dark-color);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--dark-color);
+  color: var(--first-color);
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.card:hover {
+  background-color: var(--first-color);
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+/* SORTEO */
+.players {
+  text-align: left;
+}
+
+/* Responsive Slider */
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.slider-slides {
+  position: relative;
+  height: 400px;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+
+.slider-slide img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.slider-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-btns {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.slider a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.slider a:hover {
+  color: #fff;
+  background-color: #f7df1e;
+}
+
+/* ===== ScrollSpy ===== */
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+      "header header"
+      "main panel";
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .panel {
+    grid-area: panel;
+    align-self: start;
+    position: sticky;
+    top: 4rem;
+    justify-content: flex-start;
+    background-color: var(--dark-modal-color);
+    transform: translate(0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .panel-btn {
+    display: none;
+  }
+
+  .menu {
+    justify-content: start;
+    text-align: right;
+    height: calc(100vh - 4rem);
+  }
+
+  .menu a {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+
+  .menu a:hover,
+  .menu a.active {
+    color: var(--dark-color);
+    background-color: var(--first-color);
+  }
+
+  .scroll {
+    right: initial;
+    left: calc(4.25rem + 1vw);
+  }
+}
+
+/* Video */
+video {
+  width: 70%;
+}
+
+/* Contact */
+.contact-form {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.contact-form > * {
+  padding: 0.5rem;
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form legend,
+.contact-form-response {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.contact-form input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact-form *::placeholder {
+  color: #000;
+}
+
+.contact-form [required]:valid {
+  border: 2px solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+  border: 2px solid var(--form-error-color);
+}
+
+.contact-form-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+.none {
+  display: none;
+}
+
+.is-active {
+  animation: show-message 1s 1 normal 0s ease-out both;
+  display: block;
+}
+
+.contact-form-loader img {
+  width: 5%;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
